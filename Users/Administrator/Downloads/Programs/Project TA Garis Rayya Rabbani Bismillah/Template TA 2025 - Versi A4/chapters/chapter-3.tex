@@ -1,0 +1,514 @@
+\newpage
+\chapter{METODE PENELITIAN}
+
+Bab ini menjelaskan tahapan sistematis penelitian, mulai dari alur penelitian, alat dan bahan, metode pengumpulan data, perancangan sistem, hingga skenario pengujian dan metrik evaluasi yang digunakan untuk memastikan sistem yang dibangun memenuhi kriteria keamanan, efisiensi, kemudahan penggunaan, dan akurasi prediksi.
+
+\section{Alur Penelitian}
+
+Penelitian ini menggunakan metode \textit{Prototyping}, yang memungkinkan pengembangan sistem secara iteratif berdasarkan evaluasi dari setiap tahap pengembangan. Pendekatan ini dipilih karena sesuai dengan karakteristik penelitian yang memerlukan validasi dan penyempurnaan desain berdasarkan umpan balik pengguna dan hasil pengujian. Tahapan penelitian digambarkan pada Gambar \ref{fig:alur_penelitian} dan dijelaskan sebagai berikut:
+
+\begin{figure}[h]
+    \centering
+    %\includegraphics[width=0.7\textwidth]{gambar/alur_penelitian.png}
+    \caption{Diagram Alir Tahapan Penelitian}
+    \label{fig:alur_penelitian}
+\end{figure}
+
+\begin{enumerate}
+    \item {Studi Literatur dan Analisis Kebutuhan}
+    
+    Mengkaji penelitian terdahulu mengenai sistem \textit{smart locker} berbasis IoT, mekanisme otentikasi, dan algoritma prediksi ketersediaan fasilitas. Selain itu, dilakukan survei kebutuhan kepada mahasiswa untuk mengidentifikasi fitur-fitur yang dibutuhkan dan ekspektasi pengguna terhadap sistem penitipan helm pintar.
+    
+    \item {Perancangan Sistem}
+    
+    Merancang arsitektur sistem secara komprehensif yang meliputi: (a) arsitektur IoT (perangkat keras dan skema komunikasi ESP32 dengan server), (b) desain basis data untuk menyimpan informasi pengguna dan log penggunaan, (c) antarmuka aplikasi mobile yang intuitif, dan (d) arsitektur model prediksi \textit{Machine Learning}.
+    
+    \item {Implementasi Prototipe}
+    
+    Membangun prototipe fisik loker dengan mengintegrasikan komponen ESP32, solenoid lock, sensor inframerah, dan relay module. Secara paralel, mengembangkan aplikasi mobile berbasis Android dan \textit{backend server} untuk menangani autentikasi pengguna serta kontrol akses loker secara real-time.
+    
+    \item {Pengumpulan Data untuk \textit{Machine Learning}}
+    
+    Mengoperasikan prototipe selama periode minimal 4 minggu untuk mengumpulkan data log penggunaan (meliputi timestamp check-in/check-out, ID loker, durasi penggunaan, dan pola waktu) yang akan digunakan sebagai data training untuk model prediksi ketersediaan.
+    
+    \item {Pengembangan Model Prediksi}
+    
+    Melatih model \textit{Machine Learning} menggunakan algoritma \textit{Support Vector Regression} (SVR) dengan data historis yang telah dikumpulkan. Tahap ini mencakup \textit{feature engineering}, pemilihan hyperparameter optimal melalui \textit{Grid Search Cross-Validation}, dan evaluasi performa model menggunakan metrik MAE dan RMSE.
+    
+    \item {Integrasi dan Pengujian Sistem}
+    
+    Mengintegrasikan model prediksi ke dalam aplikasi mobile sehingga pengguna dapat melihat estimasi ketersediaan loker secara real-time. Selanjutnya, melakukan serangkaian pengujian meliputi: pengujian fungsional (\textit{black box testing}), pengujian kinerja (\textit{response time} dan \textit{reliability}), evaluasi akurasi model ML, dan pengujian \textit{usability} menggunakan kuesioner SUS.
+    
+    \item {Analisis Hasil dan Penyusunan Laporan}
+    
+    Menganalisis hasil pengujian dengan membandingkannya terhadap target metrik yang telah ditetapkan. Hasil analisis ini kemudian disintesis untuk menjawab rumusan masalah penelitian dan menyusun dokumentasi penelitian secara lengkap.
+\end{enumerate}
+
+\section{Alat dan Bahan}
+
+\subsection{Perangkat Keras (\textit{Hardware})}
+
+Komponen perangkat keras yang digunakan dalam pembangunan prototipe sistem loker helm pintar adalah sebagai berikut:
+
+\begin{itemize}
+    \item {ESP32 Development Board}: Mikrokontroler utama dengan modul Wi-Fi dan Bluetooth terintegrasi yang berfungsi sebagai otak sistem IoT untuk membaca sensor dan mengontrol aktuator.
+    
+    \item {Sensor Inframerah (IR)}: Sensor untuk mendeteksi keberadaan helm di dalam loker. Setiap pintu loker dilengkapi dengan satu unit sensor IR.
+    
+    \item {Solenoid Door Lock 12V}: Aktuator pengunci pintu elektronik yang bekerja berdasarkan prinsip elektromagnetik. Ketika diberi tegangan, plunger akan tertarik masuk sehingga kunci terbuka.
+    
+    \item {Relay Module 4-Channel}: Saklar elektronik untuk mengontrol tegangan tinggi (12V) dari ESP32 yang beroperasi pada tegangan 3.3V. Setiap channel mengontrol satu solenoid lock.
+    
+    \item {Power Supply 12V 5A}: Sumber daya listrik untuk menyuplai seluruh sistem, khususnya solenoid lock yang memerlukan arus cukup besar saat aktivasi.
+    
+    \item {Komponen Pendukung}: Kabel jumper, PCB prototype board, casing loker dari kayu atau akrilik, dan komponen elektronik lainnya (resistor, LED indikator).
+\end{itemize}
+
+\subsection{Perangkat Lunak (\textit{Software})}
+
+Perangkat lunak yang digunakan dalam penelitian ini meliputi:
+
+\begin{itemize}
+    \item {Arduino IDE v2.0 atau lebih baru}: Lingkungan pengembangan terintegrasi untuk pemrograman firmware ESP32 menggunakan bahasa C/C++.
+    
+    \item {Visual Studio Code v1.80+}: Editor kode sumber yang digunakan untuk pengembangan aplikasi \textit{backend server} dan keperluan pemrograman umum.
+    
+    \item {Flutter SDK v3.10+ / Android Studio Electric Eel}: Framework dan IDE untuk pengembangan aplikasi mobile lintas platform (fokus pada Android dalam penelitian ini).
+    
+    \item {Python 3.9+ dengan library Scikit-learn v1.2+}: Bahasa pemrograman dan library untuk pengembangan, training, dan evaluasi model \textit{Machine Learning}.
+    
+    \item {Firebase Realtime Database / MySQL v8.0}: Sistem manajemen basis data untuk menyimpan data pengguna (akun mahasiswa), log penggunaan loker, dan status real-time ketersediaan loker.
+    
+    \item {Postman v10+}: Tool untuk melakukan testing dan debugging REST API yang digunakan untuk komunikasi antara aplikasi mobile, server, dan ESP32.
+    
+    \item {Node.js v18+ / Python Flask v2.3+}: Platform runtime atau framework untuk membangun \textit{backend server} yang menangani autentikasi, API endpoints, dan komunikasi dengan database.
+\end{itemize}
+
+\section{Metode Pengumpulan Data}
+
+Penelitian ini menggunakan empat metode pengumpulan data untuk mendukung berbagai tahapan penelitian:
+
+\begin{enumerate}
+    \item {Studi Literatur}
+    
+    Mengkaji paper ilmiah, artikel jurnal, dan prosiding konferensi terkait teknologi \textit{smart locker} berbasis IoT, mekanisme otentikasi keamanan, serta algoritma \textit{Machine Learning} untuk prediksi ketersediaan fasilitas. Literatur yang dikaji mencakup penelitian terbaru (2020-2025) dari database seperti IEEE Xplore, ACM Digital Library, dan Google Scholar.
+    
+    \item {Survei Kebutuhan Pengguna}
+    
+    Menyebarkan kuesioner kepada minimal 30 mahasiswa pengguna sepeda motor di kampus untuk menganalisis kebutuhan fungsional, preferensi fitur, dan ekspektasi terhadap sistem loker helm pintar. Kuesioner mencakup pertanyaan mengenai:
+    \begin{itemize}
+        \item Pengalaman masalah penyimpanan helm saat ini
+        \item Fitur yang diinginkan dalam sistem loker pintar
+        \item Tingkat kesediaan menggunakan sistem otomatis
+        \item Preferensi metode otentikasi (aplikasi mobile, RFID, QR Code, dll.)
+    \end{itemize}
+    
+    \item {Data Eksperimen untuk \textit{Machine Learning} (Data Primer)}
+    
+    Data log penggunaan loker dikumpulkan secara otomatis oleh sistem IoT selama periode minimal {4 minggu} (28 hari) pengoperasian prototipe di lokasi strategis kampus. Data yang dicatat oleh sistem meliputi:
+    
+    \begin{itemize}
+        \item {ID Loker}: Identifikasi unik untuk setiap unit loker (1-4)
+        \item {User ID}: Identifikasi pengguna yang telah dianonim untuk privasi
+        \item {Timestamp Check-in}: Waktu tepat saat mahasiswa menitipkan helm (format: YYYY-MM-DD HH:MM:SS)
+        \item {Timestamp Check-out}: Waktu tepat saat mahasiswa mengambil helm
+        \item {Durasi Penggunaan}: Lama waktu helm disimpan dalam loker (dalam menit)
+        \item {Hari dalam Seminggu}: Senin (1) hingga Minggu (7)
+        \item {Jam}: Waktu dalam format 24 jam (0-23)
+        \item {Status Ketersediaan Loker}: Jumlah loker yang terisi pada setiap timestamp (0-4)
+    \end{itemize}
+    
+    Data ini disimpan secara otomatis dalam database MySQL/Firebase setiap kali terjadi transaksi (check-in atau check-out). Untuk keperluan training model ML, data akan diekspor dalam format CSV dan diproses menggunakan Python Pandas untuk pembersihan data (\textit{data cleaning}) dan transformasi fitur.
+    
+    Target jumlah data: minimal {200 transaksi} selama periode 4 minggu untuk memastikan dataset yang cukup representatif mencakup berbagai pola penggunaan (hari kerja vs akhir pekan, jam sibuk vs sepi).
+    
+    \item {Data Pengujian \textit{Usability} (Data Primer)}
+    
+    Kuesioner \textit{System Usability Scale} (SUS) akan diisi oleh minimal 10-15 responden mahasiswa setelah mereka menggunakan prototipe sistem dalam skenario penggunaan nyata. Responden diminta untuk menilai kemudahan penggunaan aplikasi mobile dan sistem secara keseluruhan berdasarkan 10 pertanyaan standar SUS dengan skala Likert 1-5.
+\end{enumerate}
+
+\section{Perancangan Sistem}
+
+\subsection{Arsitektur IoT}
+
+Arsitektur sistem loker helm pintar dirancang menggunakan pendekatan berlapis (\textit{layered architecture}) yang terdiri dari tiga layer utama:
+
+\subsubsection{A. Layer Perangkat Keras (\textit{Hardware Layer})}
+
+Layer ini merupakan fondasi fisik sistem yang terdiri dari:
+
+\begin{itemize}
+    \item {ESP32 Mikrokontroler}: Bertindak sebagai \textit{edge device} yang dilengkapi dengan modul Wi-Fi 802.11 b/g/n untuk koneksi internet. ESP32 menjalankan firmware yang ditulis dalam Arduino C/C++ untuk membaca sensor, mengontrol aktuator, dan berkomunikasi dengan server.
+    
+    \item {Sensor Inframerah (IR)}: Terpasang di bagian dalam setiap pintu loker untuk mendeteksi keberadaan objek (helm). Sensor IR akan mengirimkan sinyal digital HIGH (1) ke ESP32 jika helm terdeteksi, dan LOW (0) jika loker kosong.
+    
+    \item {Solenoid Door Lock 12V}: Pengunci pintu elektronik yang dikontrol melalui Relay Module 4-Channel. Setiap solenoid lock terhubung ke satu channel relay yang diaktifkan oleh pin GPIO ESP32 (misal: GPIO 16, 17, 18, 19).
+    
+    \item {Relay Module 4-Channel}: Berfungsi sebagai saklar elektronik yang mengisolasi tegangan tinggi (12V) dari ESP32 yang beroperasi pada level logika 3.3V. Relay diaktifkan dengan sinyal LOW dari ESP32 untuk membuka kunci (solenoid aktif) dan dinonaktifkan dengan sinyal HIGH untuk menutup kunci.
+    
+    \item {Power Supply 12V 5A}: Menyuplai daya untuk solenoid lock (memerlukan arus 500-800 mA per solenoid saat aktivasi). ESP32 dapat disuplai dari regulator 3.3V internal atau menggunakan USB power bank untuk fleksibilitas.
+\end{itemize}
+
+\subsubsection{B. Layer Komunikasi (\textit{Communication Layer})}
+
+ESP32 berkomunikasi dengan \textit{backend server} melalui protokol {HTTP/HTTPS} menggunakan REST API. Skema komunikasi dirancang sebagai berikut:
+
+\begin{itemize}
+    \item {Request dari ESP32 ke Server (Status Update)}:
+    
+    ESP32 mengirimkan status sensor secara periodik (setiap 5 detik) atau ketika terjadi perubahan status (dari kosong menjadi terisi atau sebaliknya). Data dikirim dalam format JSON melalui HTTP POST request:
+    
+    \begin{verbatim}
+    POST /api/locker/status
+    Content-Type: application/json
+    
+    {
+      "device_id": "ESP32_001",
+      "locker_id": 1,
+      "status": "occupied",
+      "timestamp": "2025-12-01 14:30:15"
+    }
+    \end{verbatim}
+    
+    \item {Response dari Server ke ESP32 (Control Command)}:
+    
+    Server mengirimkan perintah pembukaan kunci (unlock) jika ada request dari aplikasi mobile yang telah terautentikasi. ESP32 secara kontinu melakukan \textit{polling} atau menggunakan mekanisme \textit{long polling}/WebSocket untuk menerima perintah:
+    
+    \begin{verbatim}
+    Response 200 OK
+    Content-Type: application/json
+    
+    {
+      "command": "unlock",
+      "locker_id": 1,
+      "duration": 5
+    }
+    \end{verbatim}
+    
+    ESP32 akan mengaktifkan relay yang sesuai selama durasi tertentu (default: 5 detik) untuk membuka kunci, kemudian otomatis menutup kembali.
+    
+    \item {Keamanan Komunikasi}:
+    
+    Untuk memastikan keamanan, setiap request dari ESP32 menyertakan API key atau token autentikasi di header. Dalam implementasi produksi, komunikasi menggunakan HTTPS dengan sertifikat SSL/TLS untuk enkripsi data.
+\end{itemize}
+
+\subsubsection{C. Layer Backend (\textit{Server Layer})}
+
+\textit{Backend server} dibangun menggunakan Node.js (dengan framework Express.js) atau Python Flask, yang bertugas:
+
+\begin{itemize}
+    \item {Autentikasi Pengguna}: Mengelola registrasi dan login mahasiswa menggunakan email institusi (.ac.id) dengan password yang di-hash menggunakan algoritma bcrypt atau Argon2.
+    
+    \item {Manajemen Sesi}: Menggunakan JSON Web Token (JWT) untuk mengelola sesi pengguna setelah login berhasil. Token disimpan di sisi aplikasi mobile dan dikirimkan pada setiap request yang memerlukan autentikasi.
+    
+    \item {API Endpoints}: Menyediakan REST API untuk operasi CRUD (Create, Read, Update, Delete) terhadap data pengguna, status loker, dan log transaksi.
+    
+    \item {Database Management}: Berkomunikasi dengan database MySQL/Firebase untuk menyimpan dan mengambil data secara real-time.
+    
+    \item {Integration dengan Model ML}: Meload model prediksi (file .pkl) dan melakukan inference ketika aplikasi mobile meminta prediksi ketersediaan loker.
+    
+    \item {Message Broker}: Menjembatani komunikasi antara aplikasi mobile dan ESP32, memastikan perintah unlock diteruskan ke device yang tepat.
+\end{itemize}
+
+Diagram arsitektur lengkap dapat dilihat pada Gambar \ref{fig:arsitektur_iot}.
+
+\begin{figure}[h]
+    \centering
+    %\includegraphics[width=0.9\textwidth]{gambar/arsitektur_sistem.png}
+    \caption{Arsitektur Sistem IoT Loker Helm Pintar}
+    \label{fig:arsitektur_iot}
+\end{figure}
+
+\subsection{Aplikasi Mobile}
+
+Aplikasi mobile dikembangkan menggunakan framework Flutter untuk platform Android, dengan desain antarmuka yang mengutamakan kesederhanaan dan kemudahan penggunaan. Fitur-fitur utama aplikasi meliputi:
+
+\begin{enumerate}
+    \item {Halaman Registrasi dan Login}
+    
+    Pengguna mendaftar menggunakan email institusi, nomor induk mahasiswa (NIM), dan password. Sistem melakukan validasi email domain (.ac.id) untuk memastikan hanya civitas akademika yang dapat menggunakan layanan. Setelah login, JWT token disimpan secara lokal menggunakan \textit{SharedPreferences} untuk autentikasi request berikutnya.
+    
+    \item {Dashboard Utama}
+    
+    Menampilkan status ketersediaan loker secara real-time (berapa loker yang tersedia dari total 4 loker). Status diperbarui secara otomatis setiap beberapa detik dengan melakukan API call ke server. Dashboard juga menampilkan riwayat penggunaan terakhir pengguna.
+    
+    \item {Fitur Prediksi Ketersediaan}
+    
+    Pengguna dapat melihat prediksi tingkat ketersediaan loker pada waktu-waktu tertentu dalam bentuk grafik atau tabel. Misalnya, aplikasi dapat menampilkan: "Pada pukul 13:00 nanti, diperkirakan 2 dari 4 loker akan tersedia." Fitur ini membantu mahasiswa merencanakan waktu penitipan helm agar tidak datang saat loker penuh.
+    
+    \item {Tombol "Pesan Loker"}
+    
+    Jika ada loker tersedia, pengguna dapat menekan tombol untuk memesan loker kosong. Sistem akan mengalokasikan loker tertentu (misal: Loker 3) kepada pengguna dan menampilkan nomor loker beserta tombol "Buka Kunci".
+    
+    \item {Tombol "Buka Kunci"}
+    
+    Setelah pengguna tiba di depan loker fisik, mereka menekan tombol "Buka Kunci" di aplikasi. Aplikasi mengirim API request yang telah diautentikasi dengan JWT token ke server, dan server meneruskan perintah unlock ke ESP32 yang sesuai. Pengguna dapat memasukkan helm dan menutup pintu loker secara manual. Sistem otomatis mendeteksi helm masuk melalui sensor IR dan mengunci kembali solenoid.
+    
+    \item {Tombol "Ambil Helm"}
+    
+    Ketika pengguna ingin mengambil helm, mereka menekan tombol "Ambil Helm" di aplikasi. Proses serupa terjadi: unlock command dikirim, loker terbuka, pengguna mengambil helm, dan sistem mendeteksi loker kosong melalui sensor IR. Transaksi dicatat dengan timestamp check-out dan durasi penggunaan dihitung otomatis.
+    
+    \item {Notifikasi Push}
+    
+    Aplikasi dapat mengirimkan notifikasi push menggunakan Firebase Cloud Messaging (FCM) untuk mengingatkan pengguna jika helm sudah terlalu lama disimpan (misal: > 6 jam) atau jika terjadi anomali (helm diambil tanpa request dari aplikasi pengguna).
+\end{enumerate}
+
+Desain antarmuka mengikuti prinsip \textit{Material Design} dengan palet warna yang konsisten dan navigasi intuitif. Mockup dan wireframe aplikasi dapat dilihat pada Lampiran.
+
+\subsection{Model \textit{Machine Learning}}
+
+Model prediksi ketersediaan loker dikembangkan menggunakan algoritma {Support Vector Regression (SVR)} dengan kernel {RBF (Radial Basis Function)}, yang telah terbukti efektif untuk memodelkan data time-series dengan pola non-linear seperti fluktuasi penggunaan fasilitas sepanjang hari \cite{Anitha2025Parkeezy}.
+
+\subsubsection{A. \textit{Feature Engineering}}
+
+Dari data log mentah yang dikumpulkan, dilakukan ekstraksi dan transformasi fitur untuk dijadikan input model. Fitur-fitur yang digunakan adalah:
+
+\begin{itemize}
+    \item {Hari dalam Seminggu (day\_of\_week)}: Dikodekan sebagai variabel numerik 0-6, di mana 0 = Senin, 6 = Minggu. Pola penggunaan loker cenderung berbeda antara hari kerja dan akhir pekan.
+    
+    \item {Jam (hour)}: Waktu dalam format 24 jam (0-23). Ini adalah fitur paling penting karena penggunaan loker sangat bergantung pada jadwal kuliah (jam sibuk: 07:00-09:00 dan 12:00-14:00).
+    
+    \item {Apakah Akhir Pekan (is\_weekend)}: Variabel boolean (0 atau 1) yang menunjukkan apakah hari tersebut adalah Sabtu atau Minggu. Biasanya kampus lebih sepi di akhir pekan.
+    
+    \item {Apakah Hari Libur (is\_holiday)}: Variabel boolean untuk menandai hari libur nasional atau libur akademik, yang dapat diisi manual atau diintegrasikan dengan API kalender.
+    
+    \item {Rata-rata Durasi Penggunaan Sebelumnya (avg\_duration\_prev)}: Rata-rata durasi penggunaan loker pada jam yang sama di hari-hari sebelumnya. Fitur ini memberikan informasi temporal tambahan.
+    
+    \item {Jumlah Loker Terisi Jam Sebelumnya (occupancy\_prev\_hour)}: Jumlah loker yang terisi pada 1 jam sebelum waktu prediksi. Ini membantu model memahami tren jangka pendek.
+\end{itemize}
+
+Fitur input (X) berbentuk vektor: $\mathbf{X} = [day, hour, is\_weekend, is\_holiday, avg\_duration, occupancy\_prev]$
+
+{Target output (y)}:
+\begin{itemize}
+    \item Jumlah loker yang terisi pada waktu tertentu (0, 1, 2, 3, atau 4)
+    \item Atau dapat diubah menjadi persentase ketersediaan: $availability\_percent = (4 - occupancy) / 4 \times 100\%$
+\end{itemize}
+
+\subsubsection{B. \textit{Training} dan Validasi}
+
+Proses training model dilakukan dengan langkah-langkah berikut:
+
+\begin{enumerate}
+    \item {Pembagian Dataset}:
+    
+    Data dibagi menjadi {80\% training set} dan {20\% test set} menggunakan fungsi \texttt{train\_test\_split} dari Scikit-learn dengan stratifikasi berdasarkan jam untuk memastikan distribusi data yang seimbang.
+    
+    \item {Normalisasi Fitur}:
+    
+    Fitur numerik dinormalisasi menggunakan \texttt{StandardScaler} untuk memiliki mean = 0 dan standard deviation = 1. Normalisasi penting untuk SVR agar semua fitur memiliki skala yang sebanding.
+    
+    \item {\textit{Hyperparameter Tuning}}:
+    
+    Parameter optimal SVR (C, epsilon, gamma) dicari menggunakan {Grid Search Cross-Validation} dengan 5-fold CV. Parameter yang diuji:
+    \begin{itemize}
+        \item C (parameter regularisasi): [0.1, 1, 10, 100]
+        \item epsilon (toleransi error): [0.01, 0.1, 0.5]
+        \item gamma (koefisien kernel RBF): ['scale', 'auto', 0.01, 0.1]
+    \end{itemize}
+    
+    Kombinasi parameter terbaik dipilih berdasarkan skor R-squared tertinggi pada validation set.
+    
+    \item {Training Model}:
+    
+    Model SVR dilatih menggunakan library Scikit-learn (versi 1.2+) dengan kode Python:
+    
+    \begin{verbatim}
+    from sklearn.svm import SVR
+    from sklearn.model_selection import GridSearchCV
+    
+    param_grid = {
+        'C': [0.1, 1, 10, 100],
+        'epsilon': [0.01, 0.1, 0.5],
+        'gamma': ['scale', 'auto', 0.01, 0.1]
+    }
+    
+    svr = SVR(kernel='rbf')
+    grid_search = GridSearchCV(svr, param_grid, cv=5, 
+                               scoring='r2', n_jobs=-1)
+    grid_search.fit(X_train, y_train)
+    
+    best_model = grid_search.best_estimator_
+    \end{verbatim}
+    
+    \item {Evaluasi pada Test Set}:
+    
+    Model terbaik dievaluasi pada test set yang belum pernah dilihat selama training untuk mengukur kemampuan generalisasi.
+\end{enumerate}
+
+\subsubsection{C. \textit{Deployment}}
+
+Setelah training selesai, model yang telah dilatih disimpan dalam format file \texttt{.pkl} (pickle) menggunakan library \texttt{joblib}:
+
+\begin{verbatim}
+import joblib
+joblib.dump(best_model, 'model_prediksi_loker.pkl')
+joblib.dump(scaler, 'scaler.pkl')
+\end{verbatim}
+
+File model kemudian diunggah ke server backend. Ketika aplikasi mobile meminta prediksi ketersediaan loker, server akan:
+\begin{enumerate}
+    \item Menerima input waktu yang diinginkan (misal: "Besok jam 13:00")
+    \item Mengekstrak fitur dari input (hari, jam, is\_weekend, dll.)
+    \item Meload model dan scaler dari file .pkl
+    \item Melakukan normalisasi fitur menggunakan scaler
+    \item Menjalankan \texttt{model.predict(X)} untuk mendapatkan prediksi
+    \item Mengirim hasil prediksi kembali ke aplikasi mobile dalam format JSON
+\end{enumerate}
+
+Proses inference ini dilakukan secara real-time dengan latensi rendah (< 100 ms) karena model SVR memiliki kompleksitas komputasi yang ringan setelah training.
+
+\section{Rencana Pengujian}
+
+Sistem akan diuji menggunakan empat jenis pengujian yang mencakup aspek fungsional, kinerja, akurasi model ML, dan pengalaman pengguna. Setiap jenis pengujian memiliki metrik evaluasi yang jelas dan target yang harus dicapai.
+
+\subsection{Pengujian Fungsional}
+
+Pengujian fungsional dilakukan menggunakan metode {\textit{Black Box Testing}} untuk memastikan semua fitur sistem berjalan sesuai dengan spesifikasi kebutuhan yang telah didefinisikan. Pengujian mencakup skenario-skenario berikut:
+
+\begin{table}[h]
+\centering
+\caption{Skenario Pengujian Fungsional}
+\label{tab:pengujian_fungsional}
+\begin{tabular}{|p{1cm}|p{5cm}|p{4cm}|p{3cm}|}
+\hline
+{No} & {Skenario Pengujian} & {Hasil yang Diharapkan} & {Status} \\ \hline
+1 & Registrasi dengan email valid (.ac.id) & Akun berhasil dibuat, konfirmasi dikirim & Pass/Fail \\ \hline
+2 & Registrasi dengan email non-institusi & Sistem menolak dan menampilkan error & Pass/Fail \\ \hline
+3 & Login dengan kredensial benar & Pengguna masuk ke dashboard & Pass/Fail \\ \hline
+4 & Login dengan password salah & Sistem menampilkan pesan error & Pass/Fail \\ \hline
+5 & Melihat status ketersediaan loker real-time & Status loker ditampilkan dengan akurat & Pass/Fail \\ \hline
+6 & Pesan loker ketika ada loker tersedia & Sistem mengalokasikan loker dan menampilkan nomor loker & Pass/Fail \\ \hline
+7 & Pesan loker ketika semua loker penuh & Sistem menampilkan notifikasi ``Loker penuh'' & Pass/Fail \\ \hline
+8 & Tekan tombol ``Buka Kunci'' di aplikasi & Solenoid lock terbuka dalam $<3$ detik & Pass/Fail \\ \hline
+9 & Masukkan helm dan tutup pintu & Sensor IR mendeteksi helm, sistem update status menjadi ``terisi'' & Pass/Fail \\ \hline
+10 & Tekan tombol ``Ambil Helm'' & Solenoid lock terbuka, sistem mencatat check-out & Pass/Fail \\ \hline
+11 & Ambil helm dan tutup pintu & Sensor IR tidak mendeteksi helm, status menjadi ``kosong'' & Pass/Fail \\ \hline
+12 & Akses fitur prediksi ketersediaan & Aplikasi menampilkan grafik/tabel prediksi untuk beberapa jam ke depan & Pass/Fail \\ \hline
+\end{tabular}
+\end{table}
+
+{Kriteria Keberhasilan}: Semua skenario harus memiliki status ``Pass'' (minimal 11 dari 12 skenario berhasil, atau 91.67\%).
+
+\subsection{Pengujian Kinerja (Performance)}
+
+Pengujian kinerja dilakukan untuk mengukur responsivitas sistem dan memastikan pengalaman pengguna yang lancar. Pengujian mencakup tiga aspek utama:
+
+\subsubsection{A. Response Time (Latency)}
+Mengukur selisih waktu antara penekanan tombol ``Buka Kunci'' pada aplikasi mobile ($t_{\text{request}}$) hingga solenoid lock secara fisik terbuka ($t_{\text{open}}$):
+
+\begin{equation}
+\text{Latency} = t_{\text{open}} - t_{\text{request}}
+\label{eq:latency}
+\end{equation}
+
+{Target}: Response time $< 3$ detik (idealnya 1--2 detik).
+
+{Prosedur Pengujian}:
+\begin{enumerate}
+    \item Melakukan 30 kali percobaan unlock dari aplikasi mobile.
+    \item Mencatat waktu response untuk setiap percobaan.
+    \item Menghitung rata-rata, median, dan standar deviasi.
+    \item Mengidentifikasi outlier.
+\end{enumerate}
+
+\subsubsection{B. System Reliability}
+
+Pengujian konsistensi sistem dengan 50 percobaan berurutan (Buka Kunci → Tutup Kunci → ulangi).
+
+{Target}: \textit{Success rate} minimal 95\%.
+
+\subsubsection{C. Concurrent User Handling}
+
+Menguji 3--5 pengguna melakukan request secara simultan.
+
+{Target}: Semua request diproses $<5$ detik tanpa konflik.
+
+\subsection{Evaluasi Akurasi Machine Learning}
+
+Model prediksi dievaluasi dengan MAE dan RMSE.
+
+\subsubsection{A. Mean Absolute Error (MAE)}
+
+\begin{equation}
+MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
+\label{eq:mae}
+\end{equation}
+
+{Target}: MAE $< 1$ loker.
+
+\subsubsection{B. Root Mean Squared Error (RMSE)}
+
+\begin{equation}
+RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
+\label{eq:rmse}
+\end{equation}
+
+{Target}: RMSE $<1.5$ loker.
+
+\subsubsection{C. Baseline Comparison}
+
+Baseline:
+\begin{itemize}
+    \item {Naive}: rata-rata historis jam yang sama.
+    \item {Last Value}: nilai pada jam yang sama hari sebelumnya.
+\end{itemize}
+
+\subsubsection{D. Interpretasi Hasil}
+\begin{itemize}
+    \item MAE $<0.5$: Excellent
+    \item $0.5 \le MAE < 1$: Good
+    \item $1 \le MAE < 1.5$: Acceptable
+    \item MAE $\ge 1.5$: Poor
+\end{itemize}
+
+\subsection{Pengujian Usability}
+
+Menggunakan metode \textit{System Usability Scale} (SUS).
+
+\subsubsection{A. Responden}
+\begin{itemize}
+    \item 10--15 mahasiswa pengguna motor.
+\end{itemize}
+
+\subsubsection{B. Prosedur Pengujian}
+Berisi:
+\begin{enumerate}
+    \item Briefing
+    \item Sesi penggunaan sistem
+    \item Pengisian SUS
+    \item Interview singkat (opsional)
+\end{enumerate}
+
+\subsubsection{C. Perhitungan Skor SUS}
+\begin{equation}
+Skor_{\text{SUS}} = 
+\left[
+\sum (R_{\text{ganjil}} - 1) +
+\sum (5 - R_{\text{genap}})
+\right] \times 2.5
+\label{eq:sus}
+\end{equation}
+
+{Contoh Perhitungan}:  
+Skor akhir = 85 (Excellent)
+
+\subsubsection{D. Kriteria Keberhasilan}
+\begin{itemize}
+    \item $<50$: buruk
+    \item 50--68: marginal
+    \item 68--80: baik
+    \item $>80$: sangat baik
+\end{itemize}
+
+{Target}: rata-rata $\ge 68$.
+
+\subsection{Dokumentasi Hasil Pengujian}
+\begin{itemize}
+    \item Tabel hasil pengujian fungsional
+    \item Grafik response time
+    \item Scatter plot actual vs predicted
+    \item Tabel skor SUS
+    \item Screenshot aplikasi dan foto prototipe
+    \item Video demonstrasi
+\end{itemize}

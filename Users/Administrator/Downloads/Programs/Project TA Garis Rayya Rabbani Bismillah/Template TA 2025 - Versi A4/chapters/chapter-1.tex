@@ -1,0 +1,50 @@
+\newpage
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\chapter{PENDAHULUAN} \label{Bab I}
+
+\section{Latar Belakang} \label{I.Latar Belakang}
+Perkembangan teknologi, khususnya \textit{Internet of Things} (IoT), telah membawa transformasi signifikan dalam menciptakan lingkungan kampus yang lebih cerdas (\textit{Smart Campus}). Salah satu aspek penting dalam lingkungan kampus adalah penyediaan fasilitas yang aman dan nyaman bagi civitas akademika. Sejalan dengan upaya peningkatan ketertiban dan keselamatan, beberapa perguruan tinggi menerapkan kebijakan wajib penggunaan helm bagi pengendara sepeda motor di area kampus. Kebijakan ini bertujuan positif untuk menanamkan budaya keselamatan berkendara.
+
+Namun, implementasi kebijakan wajib helm seringkali belum diimbangi dengan penyediaan fasilitas penyimpanan helm yang memadai. Mahasiswa sering kali harus meninggalkan helm di sepeda motor atau tempat yang tidak terjamin keamanannya, sehingga menimbulkan kerawanan terhadap pencurian. Permasalahan ini menunjukkan adanya kebutuhan akan solusi penyimpanan helm yang aman, mudah diakses, dan efisien di lingkungan kampus.
+
+Penelitian terkait sistem penyimpanan pintar (\textit{smart locker}) berbasis IoT telah banyak dilakukan untuk berbagai kebutuhan, seperti penitipan barang umum, pengiriman paket \cite{Pawar2025OTP}, hingga fasilitas loker di lingkungan kampus \cite{Wu2023Campus, Alqahtani2020Automated}. Beberapa sistem memanfaatkan teknologi otentikasi seperti RFID \cite{Wijaya2022Smart, Pramono2022Manufacturing}, OTP, QR Code \cite{Suciningtyas2024Helmet, Permana2025QR}, biometrik, maupun kombinasi multi-otentikasi \cite{Balfaqih2024MultiAuth}. Integrasi dengan aplikasi mobile juga umum diterapkan untuk meningkatkan kemudahan akses dan monitoring \cite{Chandrappa2025SmartLocker, Wu2023Campus, Wijaya2022Smart, Balfaqih2024MultiAuth}. Penelitian oleh Suciningtyas dkk. secara spesifik telah mengembangkan kabinet penyimpanan helm berbasis IoT dengan akses menggunakan QR Code melalui aplikasi \cite{Suciningtyas2024Helmet}. Sementara itu, Wu dkk. merancang sistem loker pintar IoT khusus untuk kampus dengan fitur berbagi akses antar pengguna \cite{Wu2023Campus}. Penelitian lain seperti Chandrappa dkk. juga menekankan pentingnya evaluasi kuantitatif dalam pengembangan smart locker \cite{Chandrappa2025SmartLocker}.
+
+Meskipun teknologi \textit{smart locker} terus berkembang, terdapat celah penelitian (\textit{research gap}) yang signifikan. Belum banyak penelitian yang secara spesifik menangani masalah penyimpanan helm mahasiswa di lingkungan kampus dengan mengintegrasikan tidak hanya IoT dan aplikasi mobile untuk keamanan dan kemudahan akses, tetapi juga memanfaatkan \textit{Machine Learning} (ML) untuk memberikan fitur prediktif \cite{Chandrappa2025SmartLocker, Wu2023Campus, Suciningtyas2024Helmet, Permana2025QR, Balfaqih2024MultiAuth}. Fitur prediksi, seperti prediksi tingkat ketersediaan loker berdasarkan data historis, dapat memberikan nilai tambah yang signifikan bagi pengguna dalam merencanakan penggunaan fasilitas. Penggunaan ML untuk prediksi dalam konteks parkir pintar telah ditunjukkan dalam penelitian Anitha dkk. \cite{Anitha2025Parkeezy}, namun belum diterapkan pada kasus loker helm kampus.
+
+Ketiadaan fasilitas penitipan helm yang aman dan terstruktur tidak hanya menimbulkan kerugian finansial dan rasa cemas bagi mahasiswa akibat risiko kehilangan helm, tetapi juga berpotensi mengurangi efektivitas penerapan kebijakan wajib helm itu sendiri. Oleh karena itu, pengembangan sebuah sistem solusi yang komprehensif menjadi krusial untuk mendukung kebijakan kampus dan meningkatkan kenyamanan serta keamanan bagi mahasiswa.
+
+Berdasarkan latar belakang dan celah penelitian yang telah diidentifikasi, penelitian ini mengusulkan perancangan dan implementasi sebuah prototipe sistem loker helm pintar. Sistem ini akan memanfaatkan teknologi IoT untuk kontrol perangkat keras, aplikasi mobile untuk otentikasi pengguna yang aman dan mudah, serta \textit{Machine Learning} untuk menyediakan fitur prediksi ketersediaan loker, sehingga menawarkan solusi yang lebih cerdas dan efisien dibandingkan sistem yang ada saat ini.
+
+\section{Rumusan Masalah} \label{I.Rumusan Masalah}
+Berdasarkan latar belakang yang telah diuraikan, maka permasalahan penelitian dirumuskan sebagai berikut:
+\begin{enumerate}[noitemsep]
+    \item Bagaimana perancangan dan implementasi sistem penitipan helm pintar (\textit{smart helmet locker}) berbasis \textit{Internet of Things} (IoT) dapat menjadi solusi yang aman, efisien, dan mudah diakses bagi mahasiswa di lingkungan kampus?
+    \item Seberapa efektif prototipe sistem yang diusulkan setelah dibangun dalam hal keamanan (otentikasi), kecepatan proses penitipan/pengambilan, dan kemudahan penggunaan?
+\end{enumerate}
+
+\section{Tujuan Penelitian} \label{I.Tujuan}
+Berdasarkan rumusan masalah di atas, maka tujuan dari penelitian ini adalah:
+\begin{enumerate}[noitemsep]
+    \item Merancang arsitektur dan membangun prototipe fungsional sistem loker helm pintar berbasis IoT, aplikasi mobile, dan fitur prediksi \textit{Machine Learning}, dimulai dari analisis kebutuhan pengguna hingga integrasi sistem.
+    \item Mengevaluasi tingkat efektivitas prototipe berdasarkan metrik keamanan otentikasi, kecepatan transaksi, kemudahan penggunaan (melalui kuesioner \textit{usability}), dan akurasi model prediksi pada sejumlah responden mahasiswa.
+\end{enumerate}
+
+\section{Batasan Masalah} \label{I.Batasan}
+Agar penelitian ini tetap fokus dan sesuai dengan sumber daya yang tersedia, ditetapkan batasan masalah sebagai berikut:
+\begin{enumerate}[noitemsep]
+    \item Prototipe fisik yang dibangun hanya mencakup satu unit loker dengan beberapa pintu (misal: 2-4 pintu) sebagai demonstrasi konsep.
+    \item Sistem otentikasi dan kontrol akses loker sepenuhnya menggunakan aplikasi mobile (Android) melalui mekanisme login dan tombol buka loker terotentikasi via internet.
+    \item Model \textit{Machine Learning} yang dikembangkan difokuskan pada prediksi tingkat ketersediaan loker berdasarkan data historis waktu penggunaan.
+    \item Penelitian tidak membahas aspek komersialisasi, sistem pembayaran, atau integrasi dengan sistem informasi akademik (SIAKAD) kampus.
+    \item Pengujian prototipe tidak mencakup uji ketahanan fisik terhadap vandalisme atau kondisi cuaca ekstrem.
+\end{enumerate}
+
+\section{Kontribusi Penelitian} \label{I.Kontribusi}
+Penelitian ini diharapkan dapat memberikan kontribusi sebagai berikut:
+\begin{enumerate}[noitemsep]
+    \item Menghasilkan sebuah artefak berupa prototipe sistem loker helm pintar yang fungsional, mengintegrasikan IoT, aplikasi mobile, dan fitur prediksi ML, yang dirancang spesifik untuk menjawab masalah nyata di lingkungan kampus.
+    \item Menyediakan analisis kebutuhan pengguna (mahasiswa) terkait fasilitas penitipan helm pintar yang dapat menjadi acuan bagi pihak universitas dalam pengembangan fasilitas serupa skala besar.
+    \item Memberikan bukti empiris (melalui evaluasi kuantitatif) mengenai efektivitas penerapan teknologi IoT dan ML untuk meningkatkan keamanan, efisiensi, dan kemudahan penggunaan fasilitas penyimpanan helm di kampus.
+\end{enumerate}

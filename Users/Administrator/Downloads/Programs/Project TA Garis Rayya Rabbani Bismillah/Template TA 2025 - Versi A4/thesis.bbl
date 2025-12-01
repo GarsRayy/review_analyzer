@@ -1,0 +1,512 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{Pawar2025OTP}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=8728cb7c9e167f3301390e738424cd30}{%
+           family={Pawar},
+           familyi={P\bibinitperiod},
+           given={Shital},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3296382ed9e1e1650c7f3305882320a2}{%
+           family={Pardeshi},
+           familyi={P\bibinitperiod},
+           given={Prathamesh},
+           giveni={P\bibinitperiod}}}%
+        {{hash=d2d42195d7954e1ca9d71ac88a2ced00}{%
+           family={Ispande},
+           familyi={I\bibinitperiod},
+           given={Ekta},
+           giveni={E\bibinitperiod}}}%
+        {{hash=11f941863fca49e7ac4e5f670618a9af}{%
+           family={Raisoni},
+           familyi={R\bibinitperiod},
+           given={Kunthal},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{b9c5b1fed3523e6509956108745560b1}
+      \strng{fullhash}{b0b8b1017349a265202046a8edb68d8f}
+      \strng{fullhashraw}{b0b8b1017349a265202046a8edb68d8f}
+      \strng{bibnamehash}{b9c5b1fed3523e6509956108745560b1}
+      \strng{authorbibnamehash}{b9c5b1fed3523e6509956108745560b1}
+      \strng{authornamehash}{b9c5b1fed3523e6509956108745560b1}
+      \strng{authorfullhash}{b0b8b1017349a265202046a8edb68d8f}
+      \strng{authorfullhashraw}{b0b8b1017349a265202046a8edb68d8f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2025 International Conference on Inventive Computation Technologies (ICICT)}
+      \field{title}{OTP based Smart Locker for Time Flexibility and Safe Delivery}
+      \field{year}{2025}
+      \field{pages}{1126\bibrangedash 1133}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/ICICT64420.2025.11004723
+      \endverb
+    \endentry
+    \entry{Wu2023Campus}{inproceedings}{}{}
+      \name{author}{7}{}{%
+        {{hash=b139dbe55c6e717004d63f354dbdcc71}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Yuting},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=3845be3d8d5fd972af6d79d73b03638d}{%
+           family={Dong},
+           familyi={D\bibinitperiod},
+           given={Min},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ece3d4f8769a5fcc65eeb2ca7451872c}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Haobin},
+           giveni={H\bibinitperiod}}}%
+        {{hash=01c7c1112ccb4e7f03175dbae3838bae}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Yuebin},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=7ff1d21e3184f525b582b31f2ce6651b}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Xin},
+           giveni={X\bibinitperiod}}}%
+        {{hash=bc94a3b21d3d78c307c1ecddcd37ea8f}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Guanyu},
+           giveni={G\bibinitperiod}}}%
+        {{hash=09f5ec270df51b814010fcc87dbfa219}{%
+           family={Bi},
+           familyi={B\bibinitperiod},
+           given={Sheng},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{05f5e8b78434fc7bc35d7d3a9fec8a2b}
+      \strng{fullhash}{a62587089cb0952c1b9422c9d8bac8c1}
+      \strng{fullhashraw}{a62587089cb0952c1b9422c9d8bac8c1}
+      \strng{bibnamehash}{05f5e8b78434fc7bc35d7d3a9fec8a2b}
+      \strng{authorbibnamehash}{05f5e8b78434fc7bc35d7d3a9fec8a2b}
+      \strng{authornamehash}{05f5e8b78434fc7bc35d7d3a9fec8a2b}
+      \strng{authorfullhash}{a62587089cb0952c1b9422c9d8bac8c1}
+      \strng{authorfullhashraw}{a62587089cb0952c1b9422c9d8bac8c1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2023 IEEE 13th International Conference on CYBER Technology in Automation, Control, and Intelligent Systems (CYBER)}
+      \field{title}{A design of smart locker system based on IoT for campus}
+      \field{year}{2023}
+      \field{pages}{1287\bibrangedash 1292}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/CYBER59472.2023.10256600
+      \endverb
+    \endentry
+    \entry{Alqahtani2020Automated}{inproceedings}{}{}
+      \name{author}{8}{}{%
+        {{hash=8ebfadddf2a8bcdeb6a32d397f90b7ca}{%
+           family={Alqahtani},
+           familyi={A\bibinitperiod},
+           given={Hanan\bibnamedelima F.},
+           giveni={H\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=fc181c781daf32c9785e35a89092e594}{%
+           family={Albuainain},
+           familyi={A\bibinitperiod},
+           given={Jeehan\bibnamedelima A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=ba94ac4480854152d18d4745462fd4f8}{%
+           family={Almutiri},
+           familyi={A\bibinitperiod},
+           given={Badriayh\bibnamedelima G.},
+           giveni={B\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=a239a4083cc54eb2f23ea9559a07bf2c}{%
+           family={Alansari},
+           familyi={A\bibinitperiod},
+           given={Shahad\bibnamedelima K.},
+           giveni={S\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=6987e7eb8011960cf737fb7f8cb71ded}{%
+           family={AL-awwad},
+           familyi={A\bibinithyphendelim a\bibinitperiod},
+           given={Ghaliah\bibnamedelima B.},
+           giveni={G\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=033d8c8d25aa12b84457721b497912ea}{%
+           family={Alqahtani},
+           familyi={A\bibinitperiod},
+           given={Nada\bibnamedelima N.},
+           giveni={N\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=1345b90af6d389887b6f31d3d2dbafa6}{%
+           family={Masaad},
+           familyi={M\bibinitperiod},
+           given={Samia\bibnamedelima M.},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=e6b1109f72beab07842a025eae2c49b0}{%
+           family={Tabeidi},
+           familyi={T\bibinitperiod},
+           given={Rania\bibnamedelima A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{2ef6a72c56cee650a98f9301bf8362d9}
+      \strng{fullhash}{5ca6ad8cdb4ef87b6f34ec85fe79b5b3}
+      \strng{fullhashraw}{5ca6ad8cdb4ef87b6f34ec85fe79b5b3}
+      \strng{bibnamehash}{2ef6a72c56cee650a98f9301bf8362d9}
+      \strng{authorbibnamehash}{2ef6a72c56cee650a98f9301bf8362d9}
+      \strng{authornamehash}{2ef6a72c56cee650a98f9301bf8362d9}
+      \strng{authorfullhash}{5ca6ad8cdb4ef87b6f34ec85fe79b5b3}
+      \strng{authorfullhashraw}{5ca6ad8cdb4ef87b6f34ec85fe79b5b3}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2020 3rd International Conference on Computer Applications \& Information Security (ICCAIS)}
+      \field{title}{Automated Smart Locker for College}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.1109/iccais48893.2020.9096868
+      \endverb
+    \endentry
+    \entry{Wijaya2022Smart}{inproceedings}{}{}
+      \name{author}{5}{}{%
+        {{hash=9744d6315973dc6cfe9158f9f686c3d3}{%
+           family={Wijaya},
+           familyi={W\bibinitperiod},
+           given={Kristianto},
+           giveni={K\bibinitperiod}}}%
+        {{hash=473726967fefb514553ae7a504e5dbc9}{%
+           family={Godjali},
+           familyi={G\bibinitperiod},
+           given={Jovianto},
+           giveni={J\bibinitperiod}}}%
+        {{hash=b4539eee5df6be565c0d8eea24c2712e}{%
+           family={Heriyanto},
+           familyi={H\bibinitperiod},
+           given={Jonathan\bibnamedelima Audris},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=7f7105453f7fb56f943937085848f69f}{%
+           family={Rahmania},
+           familyi={R\bibinitperiod},
+           given={Rissa},
+           giveni={R\bibinitperiod}}}%
+        {{hash=8f86aa6d53e94c2ecda42c4175458d95}{%
+           family={Satya},
+           familyi={S\bibinitperiod},
+           given={Davis\bibnamedelima Inde},
+           giveni={D\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \strng{namehash}{3d0100da7766a2edbfe89d435977bcfa}
+      \strng{fullhash}{bb97ad7ad8b60a72b35f4c7c25ac2bd6}
+      \strng{fullhashraw}{bb97ad7ad8b60a72b35f4c7c25ac2bd6}
+      \strng{bibnamehash}{3d0100da7766a2edbfe89d435977bcfa}
+      \strng{authorbibnamehash}{3d0100da7766a2edbfe89d435977bcfa}
+      \strng{authornamehash}{3d0100da7766a2edbfe89d435977bcfa}
+      \strng{authorfullhash}{bb97ad7ad8b60a72b35f4c7c25ac2bd6}
+      \strng{authorfullhashraw}{bb97ad7ad8b60a72b35f4c7c25ac2bd6}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2022 4th International Conference on Cybernetics and Intelligent System (ICORIS)}
+      \field{title}{Smart RFID System for Locker Cabinet Security Using Android App}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.1109/ICORIS56080.2022.10031313
+      \endverb
+    \endentry
+    \entry{Pramono2022Manufacturing}{inproceedings}{}{}
+      \name{author}{6}{}{%
+        {{hash=a779ece7c31ab7f3b9ba6574d534f9f7}{%
+           family={Pramono},
+           familyi={P\bibinitperiod},
+           given={Andi},
+           giveni={A\bibinitperiod}}}%
+        {{hash=7f5721e5fa01682b45c5e638ea07d2c6}{%
+           family={Febriantono},
+           familyi={F\bibinitperiod},
+           given={M.\bibnamedelimi Aldiki},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=59507200ed719ddc7733d3900f12ed25}{%
+           family={Agustina},
+           familyi={A\bibinitperiod},
+           given={Ira\bibnamedelima Audia},
+           giveni={I\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=f5ca4c708e8673c1ceb4ee0f82da74b2}{%
+           family={Wijaya},
+           familyi={W\bibinitperiod},
+           given={Ida\bibnamedelimb Bagus\bibnamedelima Ananta},
+           giveni={I\bibinitperiod\bibinitdelim B\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=871d9df49371f5dd78d5e8b37aaa7fed}{%
+           family={Primadani},
+           familyi={P\bibinitperiod},
+           given={Tiara\bibnamedelimb Ika\bibnamedelima Widia},
+           giveni={T\bibinitperiod\bibinitdelim I\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=80e680721e2147ada04010c80e2c92f1}{%
+           family={Budiman},
+           familyi={B\bibinitperiod},
+           given={Satrio\bibnamedelima Arif},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{060e4740f6eb14f8169d9b7e60ac8e03}
+      \strng{fullhash}{8a59b74e8c4fd2d924c5b65f81245450}
+      \strng{fullhashraw}{8a59b74e8c4fd2d924c5b65f81245450}
+      \strng{bibnamehash}{060e4740f6eb14f8169d9b7e60ac8e03}
+      \strng{authorbibnamehash}{060e4740f6eb14f8169d9b7e60ac8e03}
+      \strng{authornamehash}{060e4740f6eb14f8169d9b7e60ac8e03}
+      \strng{authorfullhash}{8a59b74e8c4fd2d924c5b65f81245450}
+      \strng{authorfullhashraw}{8a59b74e8c4fd2d924c5b65f81245450}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2022 International Conference on ICT for Smart Society (ICISS)}
+      \field{title}{Manufacturing a Smart Locker Security System for Public Spaces using E-KTP as a Primary Access}
+      \field{year}{2022}
+      \field{pages}{1\bibrangedash 6}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/ICISS55894.2022.9915146
+      \endverb
+    \endentry
+    \entry{Suciningtyas2024Helmet}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=9dc114278b8a7c7594882c8fde64f4e6}{%
+           family={Suciningtyas},
+           familyi={S\bibinitperiod},
+           given={Ika\bibnamedelimb Karlina\bibnamedelimb Laila\bibnamedelima Nur},
+           giveni={I\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim L\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=af20cbf8758eeacb3e56c5105aadf076}{%
+           family={Sani},
+           familyi={S\bibinitperiod},
+           given={Abdullah},
+           giveni={A\bibinitperiod}}}%
+        {{hash=8668b222f072938950c2b202c9405169}{%
+           family={Prebianto},
+           familyi={P\bibinitperiod},
+           given={Nanta\bibnamedelima Fakih},
+           giveni={N\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=4e1afe8a5aca0001aeb3db43c986a085}{%
+           family={Al\bibnamedelima Mubarrok},
+           familyi={A\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={M.\bibnamedelimi Safry},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{1cb58e1c6b23e8f2b889208a1deece95}
+      \strng{fullhash}{fc1bdb40a0f2132dd9d64f8381c9289d}
+      \strng{fullhashraw}{fc1bdb40a0f2132dd9d64f8381c9289d}
+      \strng{bibnamehash}{1cb58e1c6b23e8f2b889208a1deece95}
+      \strng{authorbibnamehash}{1cb58e1c6b23e8f2b889208a1deece95}
+      \strng{authornamehash}{1cb58e1c6b23e8f2b889208a1deece95}
+      \strng{authorfullhash}{fc1bdb40a0f2132dd9d64f8381c9289d}
+      \strng{authorfullhashraw}{fc1bdb40a0f2132dd9d64f8381c9289d}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{EAI International Conference on Advanced Engineering}
+      \field{title}{{IoT}-{Based} {Helmet} {Storage} {Cabinet} with {Solar} {Panel}}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.4108/eai.7-11-2023.2342943
+      \endverb
+    \endentry
+    \entry{Permana2025QR}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=6bfd3c3d179502426a57bc761d09b3b9}{%
+           family={Permana},
+           familyi={P\bibinitperiod},
+           given={Aditya\bibnamedelima Candra},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=2c13c97f95a44750831aa5518ae81e82}{%
+           family={Pradana},
+           familyi={P\bibinitperiod},
+           given={Afu\bibnamedelima Ichsan},
+           giveni={A\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{hash=4e5e0f75c1d8556d71e2743e0e8252ac}{%
+           family={Hartanti},
+           familyi={H\bibinitperiod},
+           given={Dwi},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{13ba6bbd6e306dfe8ecf4d0f7bfc0de7}
+      \strng{fullhash}{bb464baddedf4f02d977e213ddc525b0}
+      \strng{fullhashraw}{bb464baddedf4f02d977e213ddc525b0}
+      \strng{bibnamehash}{bb464baddedf4f02d977e213ddc525b0}
+      \strng{authorbibnamehash}{bb464baddedf4f02d977e213ddc525b0}
+      \strng{authornamehash}{13ba6bbd6e306dfe8ecf4d0f7bfc0de7}
+      \strng{authorfullhash}{bb464baddedf4f02d977e213ddc525b0}
+      \strng{authorfullhashraw}{bb464baddedf4f02d977e213ddc525b0}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{JITET (Jurnal Informatika dan Teknik Elektro Terapan)}
+      \field{number}{3}
+      \field{title}{{SMART} {LOKER} {BERBASIS} {IOT} {DENGAN} {AUTENTIKASI} {QR} {CODE} {TERINTEGRASI} {DENGAN} {WEB}}
+      \field{volume}{13}
+      \field{year}{2025}
+      \field{pages}{1716\bibrangedash 1724}
+      \range{pages}{9}
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.23960/jitet.v13i3.6573
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.23960/jitet.v13i3.6573
+      \endverb
+    \endentry
+    \entry{Balfaqih2024MultiAuth}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{hash=5ded66bdc01ba6e7e20f65dbd2b55514}{%
+           family={Balfaqih},
+           familyi={B\bibinitperiod},
+           given={Mohammed},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{5ded66bdc01ba6e7e20f65dbd2b55514}
+      \strng{fullhash}{5ded66bdc01ba6e7e20f65dbd2b55514}
+      \strng{fullhashraw}{5ded66bdc01ba6e7e20f65dbd2b55514}
+      \strng{bibnamehash}{5ded66bdc01ba6e7e20f65dbd2b55514}
+      \strng{authorbibnamehash}{5ded66bdc01ba6e7e20f65dbd2b55514}
+      \strng{authornamehash}{5ded66bdc01ba6e7e20f65dbd2b55514}
+      \strng{authorfullhash}{5ded66bdc01ba6e7e20f65dbd2b55514}
+      \strng{authorfullhashraw}{5ded66bdc01ba6e7e20f65dbd2b55514}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2024 21st Learning and Technology Conference (L\&T)}
+      \field{title}{Enhancing Security and Flexibility in Smart Locker Systems: A Multi-Authentication Approach with IoT Integration}
+      \field{year}{2024}
+      \field{pages}{325\bibrangedash 329}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/LT60077.2024.10469610
+      \endverb
+    \endentry
+    \entry{Chandrappa2025SmartLocker}{inproceedings}{}{}
+      \name{author}{6}{}{%
+        {{hash=a811013bf1414667fd345f5ac23c98ab}{%
+           family={Chandrappa},
+           familyi={C\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=1a30c87b60ee931cc24955ce5614df3d}{%
+           family={Rajesh},
+           familyi={R\bibinitperiod},
+           given={I\bibnamedelima S},
+           giveni={I\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=38acbe8fad277ee1126f5fa3413a2dd9}{%
+           family={Prithviraj},
+           familyi={P\bibinitperiod}}}%
+        {{hash=b588d009770a5b50d331814d0992f0fa}{%
+           family={Krishnamurthy\bibnamedelima R},
+           familyi={K\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={Manjunath\bibnamedelima Sargur},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=0b3d74bb3a2fd95d91b532184259735a}{%
+           family={Pai\bibnamedelima H},
+           familyi={P\bibinitperiod\bibinitdelim H\bibinitperiod},
+           given={Aditya},
+           giveni={A\bibinitperiod}}}%
+        {{hash=92f6da85602e652333c1f38809ad1de4}{%
+           family={Shetty\bibnamedelima R},
+           familyi={S\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={Sneha},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{394d1fce98d82f6ae1f1b6aea45457a8}
+      \strng{fullhash}{b816fcaf4ed054837a2fd1df0470d025}
+      \strng{fullhashraw}{b816fcaf4ed054837a2fd1df0470d025}
+      \strng{bibnamehash}{394d1fce98d82f6ae1f1b6aea45457a8}
+      \strng{authorbibnamehash}{394d1fce98d82f6ae1f1b6aea45457a8}
+      \strng{authornamehash}{394d1fce98d82f6ae1f1b6aea45457a8}
+      \strng{authorfullhash}{b816fcaf4ed054837a2fd1df0470d025}
+      \strng{authorfullhashraw}{b816fcaf4ed054837a2fd1df0470d025}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2025 International Conference on Artificial Intelligence and Data Engineering (AIDE)}
+      \field{title}{{Smart} {Locker} 2.0: {Leveraging} {IoT} and {Machine} {Learning} for {Secure}, {User}-{Friendly} {Public} {Storage}}
+      \field{year}{2025}
+      \field{pages}{696\bibrangedash 700}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/AIDE64228.2025.10987522
+      \endverb
+    \endentry
+    \entry{Anitha2025Parkeezy}{inproceedings}{}{}
+      \name{author}{6}{}{%
+        {{hash=f983d979d884f62417ce977692c07d23}{%
+           family={Anitha},
+           familyi={A\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=9866d46dea75672bcc4e9f529384c2a8}{%
+           family={Saai\bibnamedelima M},
+           familyi={S\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={Poorna},
+           giveni={P\bibinitperiod}}}%
+        {{hash=22478e03152c056cc5970d6817662c11}{%
+           family={Manoharan},
+           familyi={M\bibinitperiod},
+           given={Hariprasath},
+           giveni={H\bibinitperiod}}}%
+        {{hash=9878d79993a4a9a186e1e630e74f4878}{%
+           family={K},
+           familyi={K\bibinitperiod},
+           given={Annamalai},
+           giveni={A\bibinitperiod}}}%
+        {{hash=903cc3c211c6e698ea1f8e5808fc5a4c}{%
+           family={Manoharan},
+           familyi={M\bibinitperiod},
+           given={Abirami},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a0b0e426e4603a8e1d3203ffda2c9ea5}{%
+           family={M\bibnamedelima B},
+           familyi={M\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Jayasri},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{7f431974cc4dac384caed11a6b4d6161}
+      \strng{fullhash}{0343b3c023fd671e9bb9c50803cc8ec1}
+      \strng{fullhashraw}{0343b3c023fd671e9bb9c50803cc8ec1}
+      \strng{bibnamehash}{7f431974cc4dac384caed11a6b4d6161}
+      \strng{authorbibnamehash}{7f431974cc4dac384caed11a6b4d6161}
+      \strng{authornamehash}{7f431974cc4dac384caed11a6b4d6161}
+      \strng{authorfullhash}{0343b3c023fd671e9bb9c50803cc8ec1}
+      \strng{authorfullhashraw}{0343b3c023fd671e9bb9c50803cc8ec1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2025 IEEE International Students' Conference on Electrical, Electronics and Computer Science (SCEECS)}
+      \field{title}{Parkeezy: An IoT and Machine Learning-Based Parking System}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.1109/SCEECS64059.2025.10940902
+      \endverb
+    \endentry
+  \enddatalist
+  \missing{bangor2008empirical}
+  \missing{brooke1996sus}
+\endrefsection
+\endinput
+

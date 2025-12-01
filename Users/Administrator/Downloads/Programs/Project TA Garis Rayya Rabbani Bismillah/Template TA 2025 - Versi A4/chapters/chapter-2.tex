@@ -1,0 +1,238 @@
+\newpage
+\chapter{TINJAUAN PUSTAKA}
+
+Bab ini menguraikan tinjauan terhadap penelitian-penelitian terdahulu untuk mengidentifikasi celah penelitian (\textit{research gap}), serta menjelaskan landasan teori yang menjadi dasar pengembangan sistem. Tinjauan pustaka disusun secara sistematis untuk membangun argumentasi yang kuat mengenai urgensi dan kebaruan penelitian ini.
+
+\section{Penelitian Terkait}
+
+Penelitian mengenai sistem penyimpanan pintar (\textit{smart locker}) dan penerapan IoT di lingkungan kampus telah banyak dilakukan dalam beberapa tahun terakhir. Bagian ini memetakan posisi penelitian ini terhadap studi-studi sebelumnya dengan mengidentifikasi kekuatan dan keterbatasan dari solusi yang telah ada.
+
+\subsection{Sistem \textit{Smart Locker} dan Akses Keamanan}
+
+Aspek keamanan dan kemudahan akses merupakan fokus utama dalam pengembangan sistem \textit{smart locker}. Beberapa penelitian telah mengeksplorasi berbagai mekanisme otentikasi dengan pendekatan yang berbeda-beda.
+
+Pawar dkk. \cite{Pawar2025OTP} mengembangkan sistem loker pintar untuk pengiriman paket yang menggunakan kombinasi \textit{One-Time Password} (OTP) dan keypad fisik sebagai mekanisme otentikasi. Sistem ini memungkinkan fleksibilitas waktu pengambilan barang karena OTP dapat dikirimkan kepada penerima meskipun mereka tidak hadir saat pengiriman. Namun, kelemahan signifikan dari pendekatan ini adalah {keharusan interaksi fisik yang relatif lama} di depan loker untuk memasukkan kode OTP melalui keypad, yang dapat menimbulkan antrean saat jam sibuk dan mengurangi efisiensi, terutama dalam konteks lingkungan kampus dengan mobilitas tinggi.
+
+Permana dkk. \cite{Permana2025QR} mengimplementasikan sistem loker dengan autentikasi QR Code dinamis yang terintegrasi dengan aplikasi web. QR Code dihasilkan secara unik untuk setiap transaksi dan memiliki masa berlaku terbatas untuk meningkatkan keamanan. Meskipun lebih cepat dibandingkan input manual OTP, sistem ini {masih memerlukan pemindaian fisik} menggunakan kamera atau scanner yang terpasang di loker, sehingga pengguna harus berada tepat di depan perangkat scanner dan dalam kondisi pencahayaan yang memadai. Hal ini dapat menjadi kendala jika terjadi masalah teknis pada kamera atau dalam kondisi cahaya buruk.
+
+Suciningtyas dkk. \cite{Suciningtyas2024Helmet} secara spesifik telah mengembangkan kabinet penyimpanan helm berbasis IoT dengan akses menggunakan QR Code melalui aplikasi mobile, bahkan dilengkapi dengan panel surya untuk efisiensi energi. Penelitian ini sangat relevan dengan konteks penyimpanan helm di kampus. Namun, {keterbatasan utama} terletak pada mekanisme akses yang masih bergantung pada pemindaian QR Code di lokasi fisik loker, yang tidak berbeda jauh dari pendekatan Permana dkk. Selain itu, penelitian ini {tidak mengeksplorasi} aspek prediksi ketersediaan yang dapat membantu pengguna merencanakan waktu penggunaan fasilitas.
+
+Penelitian ini mengusulkan pendekatan yang berbeda dengan menggunakan {otentikasi satu tombol via aplikasi mobile} tanpa memerlukan pemindaian atau input kode di lokasi fisik. Pengguna cukup membuka aplikasi dan menekan tombol "Buka Kunci" yang telah terautentikasi melalui login, sehingga proses pembukaan loker dapat dilakukan lebih cepat (target < 3 detik) dan mengurangi waktu antrean di depan loker, terutama saat jam sibuk perkuliahan.
+
+\subsection{Integrasi IoT di Lingkungan Kampus}
+
+Penerapan teknologi IoT untuk meningkatkan fasilitas kampus (\textit{Smart Campus}) telah menjadi tren penelitian yang berkembang pesat. Wu dkk. \cite{Wu2023Campus} merancang sistem loker pintar IoT khusus untuk kampus dengan fitur unik berupa \textit{sharing access} antar pengguna melalui platform WeChat. Sistem ini memungkinkan mahasiswa untuk berbagi akses loker dengan teman, misalnya untuk menyimpan dokumen atau barang bersama. Penelitian ini menunjukkan {relevansi konteks kampus} di mana kolaborasi dan fleksibilitas penggunaan menjadi penting.
+
+Alqahtani dkk. \cite{Alqahtani2020Automated} mengembangkan sistem loker otomatis untuk perguruan tinggi dengan menggunakan teknologi Bluetooth untuk komunikasi antara aplikasi mobile dan perangkat loker. Pendekatan Bluetooth memiliki keunggulan dalam hal konsumsi daya yang rendah dan tidak bergantung pada koneksi internet. Namun, {keterbatasan jangkauan Bluetooth} (umumnya < 10 meter) mengharuskan pengguna berada sangat dekat dengan loker untuk dapat berkomunikasi, yang dapat menjadi kendala jika pengguna ingin memeriksa ketersediaan loker dari jarak jauh.
+
+Meskipun penelitian-penelitian ini relevan secara konteks (lingkungan kampus) dan teknologi (IoT), mereka {belum menyentuh aspek prediksi ketersediaan fasilitas}. Dalam lingkungan kampus dengan jumlah mahasiswa yang jauh lebih banyak dibanding fasilitas loker yang tersedia, informasi prediktif mengenai kapan loker cenderung penuh atau kosong menjadi sangat penting. Tanpa fitur prediksi, mahasiswa harus datang ke lokasi loker terlebih dahulu untuk mengetahui ketersediaan, yang tidak efisien dalam hal waktu dan tenaga.
+
+\subsection{Penerapan \textit{Machine Learning} pada Fasilitas Publik}
+
+Penerapan \textit{Machine Learning} untuk prediksi ketersediaan fasilitas publik telah menunjukkan hasil yang menjanjikan di berbagai domain, meskipun masih terbatas dalam konteks \textit{smart locker}.
+
+Anitha dkk. \cite{Anitha2025Parkeezy} membuktikan efektivitas algoritma \textit{Support Vector Regression} (SVR) untuk memprediksi harga parkir dinamis dan ketersediaan slot parkir berdasarkan data historis penggunaan. Penelitian ini menunjukkan bahwa SVR mampu menangani pola data \textit{time-series} yang non-linear dengan baik, seperti fluktuasi penggunaan fasilitas yang berbeda-beda sepanjang hari (jam sibuk vs jam sepi). Hasil evaluasi menunjukkan bahwa model SVR mencapai akurasi prediksi yang tinggi (MAE < 0.8 untuk prediksi jumlah slot tersedia) dan dapat memberikan informasi yang berguna bagi pengguna untuk merencanakan waktu parkir mereka.
+
+Chandrappa dkk. \cite{Chandrappa2025SmartLocker} dalam penelitian "\textit{Smart Locker 2.0}" menyebutkan penggunaan \textit{Machine Learning} untuk meningkatkan efisiensi sistem loker publik dan disebutkan bahwa ML dapat digunakan untuk "optimasi alokasi loker" dan "prediksi pola penggunaan". Namun, penelitian ini {tidak merinci implementasi teknis} dari komponen ML tersebut, seperti algoritma yang digunakan, fitur input yang dipilih, metrik evaluasi, atau bagaimana hasil prediksi disajikan kepada pengguna. Ketidakjelasan ini menunjukkan bahwa aspek prediktif ML dalam konteks \textit{smart locker} masih merupakan area yang belum matang dan memerlukan eksplorasi lebih lanjut.
+
+Hal ini menunjukkan bahwa meskipun potensi ML untuk prediksi ketersediaan fasilitas fisik telah terbukti di domain lain (seperti parkir), {integrasi ML untuk prediksi ketersediaan loker} — khususnya loker helm di kampus — adalah area yang potensial namun belum banyak dieksplorasi secara komprehensif dengan implementasi dan evaluasi yang rinci.
+
+\subsection{Posisi Penelitian (\textit{Research Gap})}
+
+Berdasarkan tinjauan sistematis terhadap penelitian-penelitian terdahulu, dapat diidentifikasi beberapa celah penelitian yang signifikan:
+
+\begin{enumerate}
+    \item {Gap Mekanisme Akses}: Penelitian sebelumnya masih bergantung pada interaksi fisik yang memerlukan waktu (OTP keypad, pemindaian QR Code) yang dapat menimbulkan antrean. Belum ada solusi yang mengoptimalkan kecepatan akses melalui otentikasi aplikasi satu tombol tanpa interaksi fisik tambahan.
+    
+    \item {Gap Fitur Prediktif}: Tidak ada penelitian yang mengintegrasikan fitur prediksi ketersediaan berbasis ML dalam sistem loker helm kampus, padahal fitur ini dapat memberikan nilai tambah signifikan untuk perencanaan pengguna.
+    
+    \item {Gap Konteks Spesifik}: Penelitian khusus loker helm di kampus (seperti Suciningtyas dkk.) belum mengeksplorasi kombinasi lengkap: otentikasi cepat via aplikasi + prediksi ML + evaluasi komprehensif (keamanan, kinerja, usability, akurasi).
+\end{enumerate}
+
+Tabel \ref{tab:perbandingan_penelitian} merangkum perbandingan penelitian ini dengan penelitian terdahulu berdasarkan kriteria kunci:
+
+\begin{table}[h]
+\centering
+\caption{Perbandingan dengan Penelitian Terdahulu}
+\label{tab:perbandingan_penelitian}
+\begin{tabular}{|p{3cm}|p{2.5cm}|p{3cm}|p{2cm}|p{3cm}|}
+\hline
+{Peneliti} & {Fokus} & {Teknologi Akses} & {Fitur ML} & {Keterbatasan Utama} \\ \hline
+Suciningtyas dkk. \cite{Suciningtyas2024Helmet} & Loker Helm & QR Code, Solar Panel & Tidak Ada & Perlu scan fisik di alat, tidak ada prediksi \\ \hline
+Wu dkk. \cite{Wu2023Campus} & Loker Kampus & WeChat, Sharing & Tidak Ada & Tidak ada prediksi ketersediaan \\ \hline
+Pawar dkk. \cite{Pawar2025OTP} & Loker Paket & OTP, Keypad & Tidak Ada & Interaksi fisik lambat, tidak untuk helm \\ \hline
+Chandrappa dkk. \cite{Chandrappa2025SmartLocker} & Loker Publik & Multi-autentikasi & Disebutkan & Implementasi ML tidak detail \\ \hline
+{Penelitian Ini} & {Loker Helm Kampus} & {App Mobile (1-tap)} & {Prediksi SVR} & {-} \\ \hline
+\end{tabular}
+\end{table}
+
+Dapat disimpulkan bahwa {belum ada penelitian yang secara komprehensif mengintegrasikan} sistem loker helm khusus untuk kampus dengan otentikasi aplikasi mobile yang cepat dan fitur prediksi ketersediaan berbasis \textit{Machine Learning}. Penelitian ini dirancang untuk mengisi celah tersebut dengan memberikan solusi yang lebih adaptif, informatif, dan efisien bagi mahasiswa.
+
+\section{Landasan Teori}
+
+Bagian ini menjelaskan teori-teori fundamental dan teknologi yang menjadi dasar perancangan dan implementasi sistem loker helm pintar dalam penelitian ini.
+
+\subsection{\textit{Internet of Things} (IoT) dan ESP32}
+
+\textit{Internet of Things} (IoT) adalah paradigma komputasi yang memungkinkan objek fisik untuk saling berkomunikasi dan bertukar data melalui internet tanpa memerlukan interaksi manusia secara langsung \cite{Permana2025QR}. Dalam konteks sistem loker helm pintar, IoT berperan sebagai \textit{backbone} yang menghubungkan perangkat keras (loker fisik) dengan perangkat lunak (aplikasi mobile dan server) untuk menciptakan ekosistem yang terintegrasi.
+
+{ESP32 Development Board} dipilih sebagai mikrokontroler utama dalam penelitian ini karena beberapa keunggulan teknis:
+
+\begin{itemize}
+    \item {Konektivitas Wi-Fi dan Bluetooth Terintegrasi}: ESP32 memiliki modul Wi-Fi 802.11 b/g/n dan Bluetooth 4.2 yang sudah built-in, sehingga tidak memerlukan modul eksternal tambahan. Ini menyederhanakan desain hardware dan mengurangi biaya.
+    
+    \item {Dual-Core Processor}: ESP32 menggunakan prosesor Xtensa dual-core 32-bit dengan clock hingga 240 MHz, yang cukup powerful untuk menangani multiple task secara bersamaan (membaca sensor, komunikasi HTTP, kontrol aktuator).
+    
+    \item {GPIO yang Memadai}: ESP32 memiliki 34 pin GPIO yang dapat dikonfigurasi untuk berbagai keperluan (digital input/output, ADC, PWM, I2C, SPI), sehingga fleksibel untuk integrasi dengan berbagai sensor dan aktuator.
+    
+    \item {Konsumsi Daya Rendah}: ESP32 dirancang dengan fitur \textit{deep sleep mode} yang memungkinkan konsumsi daya sangat rendah (< 5 µA) saat idle, penting untuk aplikasi IoT yang mungkin beroperasi dengan baterai atau solar panel.
+    
+    \item {Ekosistem Pengembangan yang Matang}: ESP32 mendukung pemrograman melalui Arduino IDE, ESP-IDF, dan MicroPython, dengan dokumentasi lengkap dan komunitas developer yang besar.
+    
+    \item {Harga Terjangkau}: Dengan harga sekitar Rp 40.000 - Rp 80.000 per unit, ESP32 sangat cost-effective untuk prototyping dan bahkan produksi skala kecil.
+\end{itemize}
+
+Kombinasi fitur-fitur ini membuat ESP32 sangat cocok untuk aplikasi IoT yang membutuhkan koneksi internet terus-menerus ke server, seperti sistem loker pintar yang harus responsif terhadap perintah dari aplikasi mobile secara real-time.
+
+\subsection{\textit{Solenoid Door Lock}}
+
+\textit{Solenoid door lock} adalah aktuator kunci elektronik yang bekerja berdasarkan prinsip elektromagnetik untuk mengontrol mekanisme penguncian secara otomatis \cite{Pawar2025OTP}. Pemahaman mengenai cara kerja solenoid penting untuk merancang sistem kontrol yang reliable.
+
+{Struktur dan Prinsip Kerja}:
+
+Komponen solenoid lock terdiri dari beberapa bagian utama:
+\begin{itemize}
+    \item {Kumparan Kawat (Coil)}: Kawat tembaga yang dililitkan membentuk kumparan elektromagnet.
+    \item {Plunger (Batang Besi)}: Batang logam ferromagnetik yang dapat bergerak masuk-keluar dari kumparan.
+    \item {Pegas (Spring)}: Memberikan gaya balik untuk mengembalikan plunger ke posisi awal.
+    \item {Housing}: Casing yang melindungi komponen internal.
+\end{itemize}
+
+Ketika arus listrik DC (biasanya 12V, 500-800 mA) dialirkan melalui kumparan, medan magnet yang dihasilkan akan menarik plunger ke dalam kumparan (prinsip elektromagnetik). Gerakan ini menyebabkan bolt atau latch yang terhubung dengan plunger tertarik, sehingga kunci terbuka dan pintu dapat dibuka. Saat arus listrik diputus, medan magnet menghilang dan pegas akan mendorong plunger kembali ke posisi awal, sehingga kunci tertutup kembali.
+
+{Keunggulan untuk Sistem Loker}:
+\begin{itemize}
+    \item {Kontrol Digital}: Dapat dikontrol langsung oleh mikrokontroler melalui relay, memungkinkan integrasi dengan sistem IoT.
+    \item {Response Time Cepat}: Solenoid dapat mengunci/membuka dalam hitungan milidetik (< 100 ms).
+    \item {Fail-Safe Options}: Tersedia dalam mode normally-closed (terkunci saat tidak ada daya) atau normally-open (terbuka saat tidak ada daya), dapat disesuaikan dengan kebutuhan keamanan.
+    \item {Durabilitas}: Solenoid lock dapat menahan ratusan ribu cycle operasi, cocok untuk penggunaan berulang dalam loker publik.
+\end{itemize}
+
+Dalam penelitian ini, solenoid lock 12V dengan mode normally-closed dipilih untuk memastikan loker tetap terkunci meskipun terjadi gangguan listrik, memberikan keamanan fisik yang dapat dikontrol secara digital oleh sistem IoT.
+
+\subsection{\textit{Machine Learning}: \textit{Support Vector Regression} (SVR)}
+
+Untuk fitur prediksi ketersediaan loker, penelitian ini menggunakan metode \textit{Support Vector Regression} (SVR), yang merupakan adaptasi dari algoritma \textit{Support Vector Machine} (SVM) untuk kasus regresi (prediksi nilai kontinu).
+
+{Konsep Dasar SVR}:
+
+Berbeda dengan regresi linear biasa yang berusaha meminimalkan error secara keseluruhan, SVR berusaha menyesuaikan garis regresi (atau hyperplane dalam dimensi tinggi) yang berada dalam {batas toleransi error} $\epsilon$ (epsilon). SVR hanya memperhitungkan data points yang berada di luar batas toleransi ini (disebut \textit{support vectors}), sehingga lebih robust terhadap outlier.
+
+Fungsi keputusan SVR untuk prediksi dapat dinyatakan sebagai:
+
+\begin{equation}
+y = \sum_{i=1}^{N} (\alpha_i - \alpha_i^*) K(x_i, x) + b
+\label{eq:svr}
+\end{equation}
+
+dimana:
+\begin{itemize}
+    \item $y$ = nilai prediksi (jumlah loker terisi)
+    \item $N$ = jumlah support vectors
+    \item $\alpha_i, \alpha_i^*$ = koefisien Lagrange multiplier yang dihitung selama training
+    \item $K(x_i, x)$ = fungsi kernel
+    \item $b$ = bias term
+    \item $x_i$ = support vectors
+    \item $x$ = input data baru yang akan diprediksi
+\end{itemize}
+
+{Fungsi Kernel}:
+
+Kunci kekuatan SVR terletak pada penggunaan \textit{kernel trick} yang memungkinkan algoritma menangani pola data yang non-linear tanpa harus melakukan transformasi eksplisit ke dimensi tinggi. Fungsi kernel $K(x_i, x)$ menghitung similarity antara dua data point. Dalam penelitian ini, digunakan {RBF (Radial Basis Function) kernel}:
+
+\begin{equation}
+K(x_i, x) = \exp\left(-\gamma \|x_i - x\|^2\right)
+\end{equation}
+
+dimana $\gamma$ adalah parameter yang mengontrol seberapa jauh pengaruh setiap training example. RBF kernel sangat cocok untuk data penggunaan loker karena mampu menangani fluktuasi yang tidak rata sepanjang hari (misalnya, lonjakan penggunaan pada jam-jam tertentu seperti sebelum kelas dimulai).
+
+{Relevansi untuk Prediksi Ketersediaan}:
+
+Pola penggunaan loker helm di kampus bersifat non-linear dan bergantung pada banyak faktor (hari, jam, cuaca, jadwal kuliah). SVR dengan RBF kernel telah terbukti efektif untuk kasus serupa, seperti prediksi ketersediaan parkir \cite{Anitha2025Parkeezy}, karena kemampuannya:
+\begin{itemize}
+    \item Menangani pola yang kompleks dan non-linear
+    \item Robust terhadap outlier (misalnya, hari libur mendadak atau event khusus)
+    \item Generalisasi yang baik pada data yang belum pernah dilihat
+\end{itemize}
+
+\subsection{\textit{System Usability Scale} (SUS)}
+
+\textit{System Usability Scale} (SUS) adalah kuesioner standar yang dikembangkan oleh John Brooke pada tahun 1986 untuk mengukur persepsi kemudahan penggunaan (usability) suatu sistem dari perspektif pengguna \cite{brooke1996sus}. SUS telah menjadi salah satu instrumen evaluasi usability yang paling banyak digunakan dalam penelitian HCI (\textit{Human-Computer Interaction}) dan pengembangan produk karena kesederhanaan dan reliabilitasnya yang tinggi.
+
+{Struktur Kuesioner}:
+
+SUS terdiri dari 10 pertanyaan dengan skala Likert 1-5, dimana pertanyaan ganjil (1,3,5,7,9) bernada positif dan pertanyaan genap (2,4,6,8,10) bernada negatif. Desain ini bertujuan untuk mengurangi bias responden yang cenderung memilih jawaban yang sama tanpa membaca pertanyaan dengan teliti.
+
+{Perhitungan Skor}:
+
+Skor akhir SUS dihitung dengan rumus:
+
+\begin{equation}
+Skor_{SUS} = \left[ \sum (R_{ganjil} - 1) + \sum (5 - R_{genap}) \right] \times 2.5
+\label{eq:sus_score}
+\end{equation}
+
+dimana $R$ adalah rating yang diberikan responden (1-5). Skor akhir berkisar antara 0-100, meskipun bukan persentase. Skor di atas {68} secara umum dikategorikan sebagai usability yang baik dan dapat diterima (\textit{acceptable}), berdasarkan studi benchmark oleh Bangor dkk. yang menganalisis lebih dari 2.300 survei SUS \cite{bangor2008empirical}.
+
+{Keunggulan SUS}:
+\begin{itemize}
+    \item {Cepat dan Efisien}: Hanya 10 pertanyaan, dapat diselesaikan dalam 2-3 menit.
+    \item {Reliabilitas Tinggi}: Cronbach's alpha > 0.9, menunjukkan konsistensi internal yang sangat baik.
+    \item {Valid dan Terstandarisasi}: Telah divalidasi melalui ribuan penelitian selama lebih dari 35 tahun.
+    \item {Technology-Agnostic}: Dapat digunakan untuk mengevaluasi berbagai jenis sistem (aplikasi mobile, website, hardware, dll).
+    \item {Memungkinkan Komparasi}: Skor SUS dapat dibandingkan dengan benchmark industri atau sistem lain.
+\end{itemize}
+
+Dalam penelitian ini, SUS dipilih sebagai instrumen evaluasi usability karena kesesuaiannya untuk mengevaluasi aplikasi mobile baru yang dikembangkan, kemudahan administrasi, dan kemampuan untuk memberikan metrik kuantitatif yang dapat dibandingkan dengan standar industri.
+
+\section{Kerangka Pemikiran}
+
+Kerangka pemikiran penelitian ini menggambarkan alur logis bagaimana masalah keamanan dan efisiensi penyimpanan helm diselesaikan melalui integrasi tiga blok teknologi utama: {Node IoT} (ESP32 + sensor + solenoid lock), {Aplikasi Mobile} (antarmuka pengguna), dan {Model Machine Learning} (prediksi ketersediaan). Ketiga blok ini saling berkomunikasi melalui \textit{Backend Server} yang bertindak sebagai orchestrator sistem.
+
+\begin{figure}[h]
+    \centering
+    %\includegraphics[width=0.95\textwidth]{gambar/kerangka_pemikiran.png}
+    \caption{Kerangka Pemikiran Penelitian}
+    \label{fig:kerangka_pemikiran}
+\end{figure}
+
+Gambar \ref{fig:kerangka_pemikiran} menunjukkan hubungan antar komponen:
+
+\begin{enumerate}
+    \item {Input Layer (Masalah)}: 
+    \begin{itemize}
+        \item Kebijakan wajib helm di kampus tidak didukung fasilitas penyimpanan memadai
+        \item Risiko pencurian helm
+        \item Ketidakpastian ketersediaan loker
+    \end{itemize}
+    
+    \item {Processing Layer (Solusi Teknologi)}:
+    \begin{itemize}
+        \item {Node IoT}: ESP32 membaca sensor IR untuk deteksi keberadaan helm, mengontrol solenoid lock berdasarkan perintah dari server, mengirim status real-time ke database.
+        \item {Backend Server}: Menangani autentikasi pengguna (JWT), menyimpan log transaksi, menjalankan model ML untuk prediksi, menjembatani komunikasi app-ESP32.
+        \item {Aplikasi Mobile}: Menyediakan interface untuk login, melihat status loker, mengakses prediksi, dan mengirim perintah unlock yang terautentikasi.
+        \item {Model ML (SVR)}: Dilatih dengan data historis penggunaan, memprediksi tingkat ketersediaan loker pada waktu tertentu.
+    \end{itemize}
+    
+    \item {Output Layer (Evaluasi)}:
+    
+    Sistem dievaluasi berdasarkan empat metrik utama yang menjawab rumusan masalah:
+    \begin{itemize}
+        \item Keamanan: Autentikasi JWT + kontrol akses berbasis user
+        \item Kecepatan: Response time < 3 detik
+        \item Usability: Skor SUS $\geq$ 68
+        \item Akurasi Prediksi: MAE < 1 loker, RMSE < 1.5 loker
+    \end{itemize}
+\end{enumerate}
+
+Kerangka pemikiran ini menegaskan bahwa penelitian ini tidak hanya mengembangkan sistem loker helm pintar secara parsial, tetapi mengintegrasikan seluruh komponen (IoT, aplikasi, ML) menjadi solusi holistik yang memberikan nilai tambah signifikan dibanding sistem yang ada saat ini: {lebih aman} (otentikasi digital), {lebih cepat} (tanpa interaksi fisik lama), {lebih informatif} (fitur prediksi), dan {mudah digunakan} (aplikasi intuitif).
