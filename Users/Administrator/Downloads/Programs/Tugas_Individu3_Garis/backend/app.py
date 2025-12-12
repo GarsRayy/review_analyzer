@@ -21,12 +21,13 @@ db.init_app(app)
 print("Loading Hugging Face model...")
 sentiment_analyzer = pipeline(
     "sentiment-analysis",
-    model="distilbert-base-uncased-finetuned-sst-2-english"
+    model="nlptown/bert-base-multilingual-uncased-sentiment"
 )
+
 
 # Configure Gemini
 genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
-gemini_model = genai.GenerativeModel('gemini-pro')
+gemini_model = genai.GenerativeModel('gemini-2.5-flash')
 
 # Create tables
 with app.app_context():
@@ -34,25 +35,44 @@ with app.app_context():
     print("Database tables created!")
 
 def analyze_sentiment(text):
-    """Analyze sentiment using Hugging Face"""
+    """Analyze sentiment using multilingual star rating model"""
     try:
-        result = sentiment_analyzer(text[:512])[0]  # Limit to 512 tokens
-        
-        label = result['label']
-        score = result['score']
-        
-        # Convert to our format
-        if label == 'POSITIVE':
-            sentiment = 'positive'
-        elif label == 'NEGATIVE':
-            sentiment = 'negative'
+        # 1. Cek jika text kosong atau cuma spasi
+        if not text or not text.strip():
+            return "neutral", 0.5
+
+        # 2. PERBAIKAN UTAMA:
+        # Hapus 'text[:512]' manual. Biarkan library yang memotong berdasarkan TOKEN.
+        # Tambahkan 'truncation=True' dan 'max_length=512'.
+        result = sentiment_analyzer(text, truncation=True, max_length=512)[0]
+
+        label = result["label"]  # contoh output: "4 stars", "1 star"
+        score = result["score"]
+
+        # 3. Parsing Label yang Lebih Aman
+        # Mengambil angka pertama dari string "4 stars" -> "4"
+        # Cara ini aman meskipun formatnya berubah jadi "Rated 4 stars"
+        try:
+            stars = int(label.split()[0])
+        except (ValueError, IndexError):
+            # Fallback jika label aneh
+            stars = 3 
+
+        # 4. Logika Penentuan Sentimen
+        if stars >= 4:
+            sentiment = "positive"
+        elif stars == 3:
+            sentiment = "neutral"
         else:
-            sentiment = 'neutral'
-            
+            sentiment = "negative"
+
         return sentiment, score
+
     except Exception as e:
         print(f"Sentiment analysis error: {e}")
-        return 'neutral', 0.5
+        return "neutral", 0.5
+
+
 
 def extract_key_points(text):
     """Extract key points using Gemini"""
