@@ -5,3 +5,6 @@ node_modules/
 dist/
 build/
 .env
+.env
+backend/.env
+**/__pycache__
